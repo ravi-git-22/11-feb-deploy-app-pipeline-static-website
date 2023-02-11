@@ -1,4 +1,4 @@
-az ad sp create-for-rbac --name "terraform-deploy-static-web-app" --role owner --scopes /subscriptions/e321cfbe-068e-4106-8c59-668e1d5e3140 --sdk-auth
+az ad sp create-for-rbac --name "terraform-deploy-static-web-app" --role contributor --scopes /subscriptions/e321cfbe-068e-4106-8c59-668e1d5e3140 --sdk-auth
 # to create SECRETS for github actions
 #output
 
