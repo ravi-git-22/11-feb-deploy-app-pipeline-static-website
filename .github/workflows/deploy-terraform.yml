@@ -37,6 +37,6 @@ jobs: # job starts
 
       - name: Upload to blob storage
         uses: azure/CLI@v1
-         with:
+        with:
           inlineScript: |
             az storage blob upload-batch --account-name ${{ mysa${random_string.myrandom.id} }} --auth-mode key -d '$web' -s ./app 
