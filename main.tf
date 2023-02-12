@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "static_website_rg" {
-  name     = "static-website-rg"
+  name     = "static-website-rg2"
   location = var.location
 }
 
