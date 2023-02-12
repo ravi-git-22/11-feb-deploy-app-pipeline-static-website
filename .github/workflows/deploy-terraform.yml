@@ -39,4 +39,4 @@ jobs: # job starts
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            az storage blob upload-batch --account-name 'azurerm_storage_account.mysa.name' --auth-mode key -d '$web' -s ./app 
+            az storage account list --query "[].{name:name}" --output tsv | xargs -otl az storage blob upload-batch --account-name $_ --auth-mode key -d '$web' -s ./app 
