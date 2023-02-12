@@ -39,4 +39,4 @@ jobs: # job starts
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            az storage blob upload-batch --account-name '' --auth-mode key -d '$web' -s ./app 
+            az storage blob upload-batch --account-name '$AZURE_STORAGE_ACCOUNT_ID' --auth-mode key -d '$web' -s ./app 
