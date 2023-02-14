@@ -1,0 +1,5 @@
+github repo created and cloned to local
+app folder recieved from developer
+
+-- now create all your terraform files >> main.tf, providers.tf, output.tf and variables.tf
+
