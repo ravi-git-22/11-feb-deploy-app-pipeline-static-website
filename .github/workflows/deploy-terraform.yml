@@ -36,7 +36,8 @@ jobs: # job starts
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Upload to blob storage
-        uses: azure/CLI@v1
+        uses: azure/CLI@v1,Bash@3
         with:
           inlineScript: |
-            az storage account list --query "[].{name:name}" --output tsv xargs -I{} az storage blob upload-batch --account-name {} --auth-mode key -d '$web' -s ./app 
+          containers = "$(az storage account list --query "[].{name:name}" --output tsv)"
+          az storage blob upload-batch --account-name ${containers} --auth-mode key -d '$web' -s ./app 
