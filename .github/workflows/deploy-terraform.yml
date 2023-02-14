@@ -39,5 +39,4 @@ jobs: # job starts
         uses: azure/CLI@v1,Bash@3
         with:
           inlineScript: |
-          containers = "$(az storage account list --query "[].{name:name}" --output tsv)"
-          az storage blob upload-batch --account-name ${containers} --auth-mode key -d '$web' -s ./app 
+          az storage blob upload-batch --account-name webappontf13feb --auth-mode key -d '$web' -s ./app
