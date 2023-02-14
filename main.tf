@@ -3,7 +3,7 @@ resource "azurerm_resource_group" "static_website_rg" {
   location = var.location
 }
 
-resource "azurerm_storage_account" "mysa" {
+resource "azurerm_storage_account" "static_website_storage" {
   name                     = "webappon13feb"
   resource_group_name      = azurerm_resource_group.static_website_rg.name
   location                 = var.location
