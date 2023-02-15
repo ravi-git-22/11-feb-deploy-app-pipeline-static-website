@@ -4,7 +4,7 @@ resource "random_string" "myrandom" {
   special = false
 }
 resource "azurerm_resource_group" "static_website_rg" {
-  name     = "static-website-rg2"
+  name     = "static-website-rg1"
   location = var.location
 }
 
