@@ -36,7 +36,7 @@ jobs: # job starts
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Upload to blob storage
-        uses: azure/CLI@v2
+        uses: azure/CLI@v1
         with:
           inlineScript: |
             stor-acc-name=$(az storage account list --query "[].{name:name}" --output tsv)
