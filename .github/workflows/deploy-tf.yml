@@ -39,7 +39,8 @@ jobs: # job starts
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            stor-acc-name=$(az storage account list --query "[].{name:name}" --output tsv)
+            terraform import azurerm_resource_group.static_website_rg.name $resource_group
+            stor-acc-name=$(az storage account list -g $resource_group --query "[].{name:name}" --output tsv)
             MSYS_NO_PATHCONV=1 az storage blob upload-batch --account-name $stor-acc-name --auth-mode key -d '$web' -s ./app
 
           
