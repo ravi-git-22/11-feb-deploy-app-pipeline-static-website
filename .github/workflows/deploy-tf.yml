@@ -36,8 +36,10 @@ jobs: # job starts
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Upload to blob storage
-        uses: azure/CLI@v1
+        uses: azure/CLI@v2
         with:
           inlineScript: |
-            az storage blob upload-batch --account-name webappon13feb --auth-mode key -d '$web' -s ./app
+            stor-acc-name=$(az storage account list --query "[].{name:name}" --output tsv)
+            MSYS_NO_PATHCONV=1 az storage blob upload-batch --account-name $stor-acc-name --auth-mode key -d '$web' -s ./app
+
           
