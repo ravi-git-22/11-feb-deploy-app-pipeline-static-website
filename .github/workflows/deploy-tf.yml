@@ -25,7 +25,7 @@ jobs: # job starts
 
       - name: Terraform Apply
         run: terraform apply "main.tfplan"
-        
+
   build: # name of the second git-hub action
     needs: deploy-infrastructure #needs/depends on first job
     runs-on: ubuntu-latest
@@ -39,7 +39,7 @@ jobs: # job starts
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            stor-acc-name=$(az storage account list -g static-website-rg3 --query "[].{name:name}" --output tsv)
+            stor-acc-name=$(az storage account list -g static-website-rg --query "[].{name:name}" --output tsv)
             MSYS_NO_PATHCONV=1 az storage blob upload-batch --account-name $stor-acc-name --auth-mode key -d '$web' -s ./app
 
           
