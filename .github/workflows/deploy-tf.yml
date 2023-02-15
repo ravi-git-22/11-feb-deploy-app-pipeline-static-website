@@ -40,6 +40,6 @@ jobs: # job starts
         with:
           inlineScript: |
             stor-acc-name=$(az storage account list -g static-website-rg --query "[].{name:name}" --output tsv)
-            MSYS_NO_PATHCONV=1 az storage blob upload-batch --account-name $stor-acc-name --auth-mode key -d '$web' -s ./app
+             az storage blob upload-batch --account-name $stor-acc-name --auth-mode key -d '$web' -s ./app
 
           
